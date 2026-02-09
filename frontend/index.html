@@ -1,20 +1,77 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
         --color-clifford: #da373d;
       }
     </style>
-  </head>
-  <body>
-    <h1 class="text-3xl font-bold underline text-clifford">
-      Hello world!
+</head>
+
+<body class="min-h-screen flex items-start justify-center pt-24">
+
+  <div class="w-full max-w-xl p-6">
+
+    <!-- Header -->
+
+    <h1 class="text-3xl font-semibold mb-6 text-center tracking-tight">
+      📝 Todo List
     </h1>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- Input Card -->
+
+    <div class="bg-slate-800 rounded-xl shadow-lg p-4 mb-6">
+      <div class="flex gap-3">
+        <input id="todoInput" placeholder="What needs to be done?"
+          class="flex-1 px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+        <button class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium transition hover:cursor-pointer">
+          Add
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Todo List Card -->
+
+    <div class="bg-slate-800 rounded-xl shadow-lg">
+
+      <ul id="todoList" class="divide-y divide-slate-700">
+
+        <!-- Sample Item -->
+        <li class="flex items-center justify-between px-4 py-3 hover:bg-slate-700/40 hover:rounded-xl rounded-xl transition">
+
+          <div class="flex items-center gap-3">
+            <input type="checkbox" class="w-5 h-5 accent-indigo-500">
+
+            <span class="text-slate-200">
+              Build awesome backend
+            </span>
+          </div>
+
+          <button class="text-red-400 hover:text-red-500 font-semibold hover:cursor-pointer">
+            Delete
+          </button>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- Footer Stats -->
+
+    <div class="flex justify-between mt-4 text-sm text-slate-400">
+      <span>0 items left</span>
+      <button class="hover:text-slate-200 hover:cursor-pointer">Clear completed</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
