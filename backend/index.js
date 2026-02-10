@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 
 // routes
 const todoRoutes = require("./routes/todos");
@@ -8,6 +9,7 @@ const todoRoutes = require("./routes/todos");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/todos", todoRoutes);
 
