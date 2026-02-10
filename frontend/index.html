@@ -28,45 +28,31 @@
       <div class="flex gap-3">
         <input id="todoInput" placeholder="What needs to be done?"
           class="flex-1 px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
-        <button class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium transition hover:cursor-pointer">
+        <button id="add"
+          class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-medium transition hover:cursor-pointer">
           Add
         </button>
       </div>
-
     </div>
 
     <!-- Todo List Card -->
 
     <div class="bg-slate-800 rounded-xl shadow-lg">
-
       <ul id="todoList" class="divide-y divide-slate-700">
-
-        <!-- Sample Item -->
-        <li class="flex items-center justify-between px-4 py-3 hover:bg-slate-700/40 hover:rounded-xl rounded-xl transition">
-
-          <div class="flex items-center gap-3">
-            <input type="checkbox" class="w-5 h-5 accent-indigo-500">
-
-            <span class="text-slate-200">
-              Build awesome backend
-            </span>
-          </div>
-
-          <button class="text-red-400 hover:text-red-500 font-semibold hover:cursor-pointer">
-            Delete
-          </button>
-
-        </li>
-
+        <!-- JS will render todos here -->
       </ul>
-
     </div>
 
     <!-- Footer Stats -->
 
     <div class="flex justify-between mt-4 text-sm text-slate-400">
       <span>0 items left</span>
-      <button class="hover:text-slate-200 hover:cursor-pointer">Clear completed</button>
+      <button id="delete" class="hover:text-slate-200 hover:cursor-pointer">
+        Delete Selected
+      </button>
+      <button id="clear" class="hover:text-slate-200 hover:cursor-pointer">
+        Clear completed
+      </button>
     </div>
 
   </div>
