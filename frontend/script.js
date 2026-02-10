@@ -34,8 +34,8 @@ async function fetchTodos() {
         <button data-id="${todo._id}" class="toggle bg-green-600 px-2 rounded">
           ✔
         </button>
-        <button data-id="${todo._id}" class="pick bg-yellow-600 px-2 rounded">
-          Select
+        <button id="delete" data-id="${todo._id}" class="pick bg-yellow-600 px-2 rounded">
+          Delete
         </button>
       </div>
     `;
