@@ -5,8 +5,11 @@ const cors = require("cors");
 
 // routes
 const todoRoutes = require("./routes/todos");
+const connectDB = require("./db");
 
 const app = express();
+
+await connectDB();
 
 app.use(express.json());
 app.use(cors());
