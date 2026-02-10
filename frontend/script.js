@@ -1,7 +1,6 @@
 const API_URL = "http://localhost:3000/todos";
 
 const addBtn = document.getElementById("add");
-const deleteBtn = document.getElementById("delete");
 const clearBtn = document.getElementById("clear");
 
 const input = document.getElementById("todoInput");
@@ -30,14 +29,14 @@ async function fetchTodos() {
       <span class="text-white ${todo.completed ? "line-through text-gray-400" : ""}">
         ${todo.text}
       </span>
-      <div class="flex gap-2">
-        <button data-id="${todo._id}" class="toggle bg-green-600 px-2 rounded">
-          ✔
-        </button>
-        <button id="delete" data-id="${todo._id}" class="pick bg-yellow-600 px-2 rounded">
-          Delete
-        </button>
-      </div>
+        <div class="flex gap-2">
+          <button data-id="${todo._id}" class="toggle bg-green-600 px-2 rounded">
+            ✔
+          </button>
+          <button data-id="${todo._id}" class="delete bg-yellow-600 px-2 rounded">
+            Delete
+          </button>
+        </div>
     `;
 
     list.appendChild(li);
@@ -111,13 +110,7 @@ addBtn.addEventListener("click", () => {
   input.value = "";
 });
 
-// Delete selected
-deleteBtn.addEventListener("click", () => {
-  if (selectedId) {
-    deleteTodo(selectedId);
-    selectedId = null;
-  }
-});
+// (No global delete button) per-item delete handled via list click
 
 // Clear completed
 clearBtn.addEventListener("click", () => {
@@ -126,16 +119,18 @@ clearBtn.addEventListener("click", () => {
 
 // Toggle / Select via list
 list.addEventListener("click", (e) => {
-  const id = e.target.dataset.id;
+  const btn = e.target.closest("button");
+  if (!btn || !list.contains(btn)) return;
+
+  const id = btn.dataset.id;
   if (!id) return;
 
-  if (e.target.classList.contains("toggle")) {
+  if (btn.classList.contains("toggle")) {
     toggleTodo(id);
   }
 
-  if (e.target.classList.contains("pick")) {
-    selectedId = id;
-    console.log("Selected:", id);
+  if (btn.classList.contains("delete")) {
+    deleteTodo(id);
   }
 });
 
